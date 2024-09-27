@@ -1,22 +1,34 @@
 import java.util.Scanner;
 
 public class ArmstrongNo {
+		public static int cal(int num , int power){
+			if(num == 0){
+				return 0;
+			}
+			int digit = num % 10;
+			return (int) Math.pow(digit, power) + cal(num / 10, power);
+		}
+		public static int count(int num){
+			if(num == 0){
+				return 0;
+			}
+			return 1 + count(num / 10);
+		}
+		public static boolean isArmstrong(int num){
+			int numDigit = count(num);
+			int sum = cal(num, numDigit);
+			return num == sum;
+		}
 	public static void main(String[] args) {
-		int r,org,result = 0;
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Number: ");
-		int n = sc.nextInt();
-		org = n;
-		while(org != 0) {
-			r = org % 10;
-			result += Math.pow(r , 3);
-			org /= 10;
-		}
-		if(result == n) {
-			System.out.println(n + " true");
+		int num = sc.nextInt();
+		if(isArmstrong(num)) {
+		System.out.println(num + " true");
 		} else {
-			System.out.println(n + " false");
+		System.out.println(num + " false");
 		}
+		sc.close();
     }
 
 }
