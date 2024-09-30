@@ -12,7 +12,6 @@ public class ReverseArray {
         for(int i = 0; i < n; i++){
             arr[i] = s.nextInt();
         }
-        int[] rev = new int[n];
         for(int i = arr.length - 1; i >= 0 ; i--){
             System.out.print(arr[i] + " ");
         }
