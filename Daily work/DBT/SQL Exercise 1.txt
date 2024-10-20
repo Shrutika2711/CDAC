@@ -1,0 +1,61 @@
+SQL Exercise 1
+1. Create the table SEMP with the following structure:-
+EMPNO CHAR(4)
+EMPNAME CHAR(20)
+BASIC FLOAT
+DEPTNO CHAR(2)
+DEPTHEAD CHAR(4)
+Ans. CREATE TABLE SEMP ( EMPNO CHAR(4),EMPNAME CHAR(20),BASIC FLOAT,DEPTNO CHAR(2),DEPTHEAD CHAR(4));
+
+2. Create the table SDEPT with the following structure:-
+DEPTNO CHAR(2)
+DEPTNAME CHAR(15)
+Ans. CREATE TABLE SDEPT ( DEPTNO CHAR(2),DEPTNAME CHAR(15));
+3. Insert into the SDEPT table the following values:-
+10, Development
+20, Training
+Ans. INSERT INTO SDEPT (DEPTNO , DEPTNAME) VALUES(10,"Development"), (20,"Training");
+
+4. Insert into the SEMP table the following values:-
+0001, SUNIL, 6000, 10
+0002, HIREN, 8000, 20
+0003, ALI, 4000, 10, 0001
+0004, GEORGE, 6000, 0002
+Ans. INSERT INTO SEMP(EMPNO,EMPNAME,BASIC,DEPTNO) VALUES(0001,"SUNIL",6000,10),
+	(0002,"HIREN",8000,20);
+	INSERT INTO SEMP (EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD) VALUES(0003,"ALI",4000,10,0001);
+	INSERT INTO SEMP (EMPNO,EMPNAME,BASIC,DEPTHEAD) VALUES(0004,"GEORGE",6000,0002);
+
+Write the SELECT queries to do the following:-
+5. Display all the data from the S table.
+Ans. select* from supplier;
+
+6. Display only the S# and SNAME fields from the S table.
+Ans. select `S#`,sname from supplier;
+
+7. Display the PNAME and COLOR from the P table for the CITY=”London”.
+Ans.
+8. Display all the Suppliers from London.
+Ans. select * from supplier where city='london';
+
+9. Display all the Suppliers from Paris or Athens.
+Ans. select * from supplier where city='athens' or city='paris';
+
+10. Display all the Projects in Athens.
+Ans. select * from projects where city='athens';
+
+11. Display all the Partnames with the weight between 12 and 14 (inclusive of both).
+Ans. select * from parts where weight=12 or weight=14;
+
+12. Display all the Suppliers with a Status greater than or equal to 20.
+Ans. select * from supplier where status >=20;
+ 
+13. Display all the Suppliers except the Suppliers from London.
+Ans. select * from supplier  where city<>'London';
+
+14. Display only the Cities from where the Suppliers come from.
+Ans. select city from supplier; 
+
+15. Assuming that the Part Weight is in GRAMS, display the same in MILLIGRAMS and KILOGRAMS.
+Ans. select weight*1000 as "MILLIGRAMS" , weight/1000 as "KILOGREAMS" from
+ parts;
